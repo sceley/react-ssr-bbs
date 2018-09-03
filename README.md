@@ -1,8 +1,9 @@
 # react-ssr-bbs
 
-## install
+platform: 
+- MacOS
 
-platform: MacOS
+## install
 
 ```sh
 brew install node
