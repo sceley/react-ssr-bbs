@@ -165,7 +165,6 @@ exports.signin = async (req, res) => {
 exports.authGithub = async (req, res) => {
     try {
         const body = req.user;
-        console.log(body);
         const date = moment().format("YYYY-MM-DD HH:mm:ss");
         const user = await new Promise((resolve, reject) => {
             const sql = 'select id, username, email from User where githubId=? limit 1';

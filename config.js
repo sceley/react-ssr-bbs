@@ -18,12 +18,12 @@ module.exports = {
         user: 'root',
         host: process.env.MYSQL_HOST || '127.0.0.1',
         password: process.env.MYSQL_PASSWORD || '16051223',
-        database: process.env.MYSQL_DATABASE || 'sceley-bbs'
+        database: process.env.MYSQL_DATABASE || 'sceley_bbs'
     },
     redis: {
         host: process.env.REDIS_HOST || '127.0.0.1',
         port: process.env.REDIS_PORT || 6379,
-        password: process.env.REDIS_PASSWORD || ''
+        password: process.env.REDIS_PASSWORD || '16051223'
     },
     log: {
         dirpath: './logs',

@@ -71,8 +71,12 @@ app.get("*", async (req, res) => {
         routes.forEach(route => {
             const match = matchPath(req.path, route);
             const serverFetch = route.component.serverFetch;
-            if (match && match.params.id && serverFetch) {
-                promises.push(store.dispatch(serverFetch(match)));
+            if (match && serverFetch) {
+                if (match.params.id) {
+                    promises.push(store.dispatch(serverFetch(match)));
+                } else {
+                    promises.push(store.dispatch(serverFetch()));
+                }
             }
         });
         await Promise.all(promises);

@@ -37,31 +37,8 @@ exports.createTopic = async (req, res) => {
                 }
             });
         });
-        const user = await new Promise((resolve, reject) => {
-            const sql = 'select * from User where id=? limit 1';
-            db.query(sql, [user_id], (err, users) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(users[0]);
-                }
-            });
-        });
         res.json({
             err: 0,
-            data: {
-                id: result.insertId,
-                tab: body.tab,
-                title: body.title,
-                content: body.content,
-                author_id: user_id,
-                avatar: user.avatar,
-                visit_count: 0,
-                comments_count: 0,
-                collects_count: 0,
-                createdAt: date,
-                updatedAt: date
-            },
             msg: 'success'
         });
     } catch (err) {

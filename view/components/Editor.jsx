@@ -42,6 +42,15 @@ class Editor extends Component {
             value: e.target.value
         });
     }
+    handleKeyDown = (e) => {
+        if (e.keyCode === 9) {
+            e.preventDefault();
+            const value = e.target.value + '\t';
+            this.setState({
+                value: value
+            });
+        }
+    }
     render() {
         return (
             <div id={this.props.id} style={{ lineHeight: 'normal' }}>
@@ -52,7 +61,7 @@ class Editor extends Component {
                         </a>
                     </li>
                 </ul>
-                <TextArea className="editor" value={this.state.value} onChange={this.handleChange} rows="15"></TextArea>
+                <TextArea onKeyDown={this.handleKeyDown} className="editor" value={this.state.value} onChange={this.handleChange} rows="15"></TextArea>
                 <Modal
                     title="图片上传"
                     visible={this.state.visible}

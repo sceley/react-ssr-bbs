@@ -125,3 +125,7 @@ export const deleteCollect = (body) => {
         body: JSON.stringify(body)
     });
 };
+
+export const search = (value) => {
+    return fetch(`${preUrl}/api/search/?search=${value}`);
+};

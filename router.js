@@ -27,6 +27,7 @@ const uploadImage = require('./controllers/api/upload').uploadImage;
 const rss = require('./controllers/rss');
 const sitemap = require('./controllers/sitemap');
 const robots = require('./controllers/robots');
+const search = require('./controllers/api/search');
 
 //middlewares
 const userRequired = require('./middlewares/auth').userRequired;
@@ -51,6 +52,7 @@ router.get('/api/signout', signout);
 router.get('/rss', rss.index);
 router.get('/sitemap.xml', sitemap.index);
 router.get('/robots.txt', robots.index);
+router.get('/api/search', search.index);
 
 //delete
 router.delete('/api/topic/:id', userRequired, deleteTopic);

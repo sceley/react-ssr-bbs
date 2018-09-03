@@ -19,5 +19,7 @@
                 "style": "css"
             }
         ]
-    ]
+    ],
+    "compact": true,
+    "highlightCode": true
 }

@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const MFS = require('memory-fs');
 const path = require('path');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-const clientConfig = require('../build/webpack.client');
-const serverConfig = require('../build/webpack.server');
+const clientConfig = require('./webpack.client.dev');
+const serverConfig = require('./webpack.server.dev');
 const clientCompiler = webpack(clientConfig);
 const serverCompiler = webpack(serverConfig);
 const mfs = new MFS();
@@ -24,8 +24,6 @@ module.exports = (app, cb) => {
             const m = new Module();
             m._compile(bundle, serverConfig.output.filename);
             cb(m.exports);
-            // const { createApp, createStore } = m.exports;
-            // cb(createApp, createStore);
         }
     });
 };

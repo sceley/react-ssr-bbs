@@ -7,6 +7,7 @@ import { CLEAR_USERINFO, fetchUserInfo } from './store/actions';
 import * as api from './api';
 import 'highlightjs/styles/atom-one-light.css';
 import './App.css';
+import { search } from './api'
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;
 
@@ -17,6 +18,19 @@ class App extends Component {
             this.props.dispatch({
                 type: CLEAR_USERINFO
             });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    handleSearch = async (value) => {
+        try {
+            const res = await search(value);
+            if (res.ok) {
+                const json = await res.json();
+                if (json.err === 0) {
+                    window.location.href = json.data;
+                }
+            }
         } catch (err) {
             console.log(err);
         }
@@ -38,8 +52,8 @@ class App extends Component {
                             <div className="share">一个分享与发现的地方</div>
                             <div>
                                 <Search
+                                    onSearch={this.handleSearch}
                                     placeholder="搜索"
-                                    enterButton
                                     style={{ width: 250 }}
                                 />
                             </div>
