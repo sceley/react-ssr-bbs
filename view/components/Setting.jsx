@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Profile from './Profile';
 import { editUserInfo } from '../api';
-import { SET_USERINFO } from '../store/actions'
+import { SET_USERINFO } from '../store/actions';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const { TextArea } = Input;

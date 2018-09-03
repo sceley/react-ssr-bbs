@@ -1,3 +1,5 @@
+import * as api from '../../api';
+
 export const SET_USERINFO = 'SET_USERINFO';
 export const CLEAR_USERINFO = 'CLEAR_USERINFO';
 export const SET_TOPICS = 'SET_TOPICS';
@@ -5,8 +7,6 @@ export const SET_TOPIC = 'SET_TOPIC';
 export const SET_USER = 'SET_USER';
 export const CLEAR_USER = 'CLEAR_USER';
 export const SET_TOTALOFTOPICS = 'SET_TOTALOFTOPICS';
-
-import * as api from '../../api';
 
 export const fetchTopics = (query) => {
     return async (dispatch) => {

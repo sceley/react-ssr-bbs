@@ -11,7 +11,7 @@ const getStyleLoaders = (cssOptions) => {
         MiniCssExtractPlugin.loader,
         {
             loader: require.resolve('css-loader'),
-            options: cssOptions,
+            options: cssOptions
         },
         {
             loader: require.resolve('postcss-loader'),
@@ -23,7 +23,7 @@ const getStyleLoaders = (cssOptions) => {
                         flexbox: 'no-2009',
                     }),
                 ]
-            },
+            }
         },
     ];
     return loaders;
@@ -117,6 +117,6 @@ module.exports = {
         new ManifestPlugin({
             fileName: 'client-manifest.json',
             publicPath: publicPath
-        }),
+        })
     ]
 };

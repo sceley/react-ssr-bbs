@@ -4,17 +4,16 @@ import { Route, Switch, Link, withRouter } from 'react-router-dom';
 import { Layout, Input } from 'antd';
 import routes from './routes';
 import { CLEAR_USERINFO, fetchUserInfo } from './store/actions';
-import * as api from './api';
 import 'highlightjs/styles/atom-one-light.css';
 import './App.css';
-import { search } from './api'
+import { search, signout } from './api';
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;
 
 class App extends Component {
     handleSignout = async () => {
         try {
-            await api.signout();
+            await signout();
             this.props.dispatch({
                 type: CLEAR_USERINFO
             });

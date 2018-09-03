@@ -7,7 +7,6 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const config = require('./config');
 const log4js = require('./lib/log');
-const port = process.env.PORT || 3000;
 const app = express();
 const RedisStore = require('connect-redis')(session);
 const server = http.createServer(app);
@@ -41,6 +40,6 @@ if (process.env.NODE_ENV == 'development') {
     app.get('*', render.index);
 }
 
-server.listen(port, () => {
-    console.log(`http://localhost:${port}`);
+server.listen(config.server.port, () => {
+    console.log(`${config.server.url}`);
 });

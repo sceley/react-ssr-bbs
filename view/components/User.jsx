@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Layout, Avatar, List, Tag } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import Profile from './Profile';
 import { fetchUser } from '../store/actions'
 const { Content, Sider } = Layout;
@@ -24,10 +24,10 @@ class User extends Component {
                                 dataSource={this.props.user.topics}
                                 bordered={true}
                                 renderItem={topic => (
-                                    <List.Item actions={[<span>{moment(topic.createdAt).format("YYYY-MM-DD HH:mm:ss")}</span>]}>
+                                    <List.Item actions={[<span>{dayjs(topic.createdAt).format("YYYY-MM-DD HH:mm:ss")}</span>]}>
                                         <List.Item.Meta
                                             avatar={
-                                                <Link to={`/user/${topic.user_id}`}>
+                                                <Link to={`/user/${topic.author_id}`}>
                                                     <Avatar src={topic.avatar} />
                                                 </Link>
                                             }
@@ -53,7 +53,7 @@ class User extends Component {
                                 dataSource={this.props.user.collects}
                                 bordered={true}
                                 renderItem={topic => (
-                                    <List.Item actions={[<span>{moment(topic.createdAt).format("YYYY-MM-DD HH:mm:ss")}</span>]}>
+                                    <List.Item actions={[<span>{dayjs(topic.createdAt).format("YYYY-MM-DD HH:mm:ss")}</span>]}>
                                         <List.Item.Meta
                                             avatar={
                                                 <Link to={`/user/${topic.author_id}`}>

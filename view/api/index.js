@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
-const preUrl = 'http://localhost:80';
-// const preUrl = '//bbs.qinyongli.cn';
+import config from '../../config';
+const preUrl = config.server.url;
 
 export const fetchTopics = (query) => {
     let nextUrl = '';

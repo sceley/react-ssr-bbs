@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   redis:
     image: redis
@@ -17,7 +17,7 @@ services:
       - ./conf.d/mysql:/etc/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=16051223
-      - MYSQL_DATABASE=sceley_bbs
+      - MYSQL_DATABASE=sceley-bbs
     networks:
       - docker-bbs
     ports:

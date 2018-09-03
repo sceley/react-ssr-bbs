@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Layout, List, Avatar, Card, Button, Icon } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import Profile from './Profile';
 import Editor from './Editor';
 import { connect } from 'react-redux';
@@ -51,7 +51,7 @@ const Title = (props) => (
             <li>
                 <em>
                     <span>时间：</span>
-                    {moment(props.topic.createdAt).format('YYYY-MM-DD HH:mm:ss')}
+                    {dayjs(props.topic.createdAt).format('YYYY-MM-DD HH:mm:ss')}
                 </em>
             </li>
             <li>
@@ -251,7 +251,7 @@ class Topic extends Component {
                                                     </em>
                                                     <em style={{ marginLeft: 16 }}>
                                                         <span>时间：</span>
-                                                        {moment(comment.updatedAt).format("YYYY-MM-DD HH:mm:ss")}
+                                                        {dayjs(comment.updatedAt).format("YYYY-MM-DD HH:mm:ss")}
                                                     </em>
                                                 </div>
                                                 <div dangerouslySetInnerHTML={{

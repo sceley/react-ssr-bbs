@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   node:
     build:
@@ -13,7 +13,7 @@ services:
       - MYSQL_HOST=mysql
       - MYSQL_PORT=3306
       - MYSQL_PASSWORD=16051223
-      - MYSQL_DATABASE=sceley_bbs
+      - MYSQL_DATABASE=sceley-bbs
     depends_on:
       - redis
       - mysql
@@ -34,11 +34,14 @@ services:
     image: mysql
     volumes:
       - bbs-mysql:/var/lib/mysql
+      - ./conf.d/mysql:/etc/mysql
     environment: 
       - MYSQL_ROOT_PASSWORD=16051223
-      - MYSQL_DATABASE=sceley_bbs
+      - MYSQL_DATABASE=sceley-bbs
     networks:
       - docker-bbs
+    ports:
+      - 3306:3306
 
 volumes:
   bbs-redis:

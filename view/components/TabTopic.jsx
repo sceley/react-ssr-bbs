@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { List, Avatar, Tag } from 'antd';
 import { fetchTotalOfTopics, fetchTopics } from '../store/actions';
-import moment from 'moment';
+import dayjs from 'dayjs';
 class TabTopic extends Component {
     handleTurnPage = (page) => {
         this.props.dispatch(fetchTopics({
@@ -40,10 +40,10 @@ class TabTopic extends Component {
                     bordered={true}
                     pagination={pagination}
                     renderItem={topic => (
-                        <List.Item actions={[<span>{moment(topic.updatedAt).format("YYYY-MM-DD HH:mm:ss")}</span>]}>
+                        <List.Item actions={[<span>{dayjs(topic.updatedAt).format("YYYY-MM-DD HH:mm:ss")}</span>]}>
                             <List.Item.Meta
                                 avatar={
-                                    <Link to={`user/${topic.user_id}`}>
+                                    <Link to={`user/${topic.author_id}`}>
                                         <Avatar src={topic.avatar} />
                                     </Link>
                                 }
