@@ -7,6 +7,7 @@ services:
     # image: sceley/pmnode
     environment:
       - NODE_ENV=production
+      - PORT=80
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=16051223
@@ -20,7 +21,7 @@ services:
     networks:
       - docker-bbs
     ports:
-      - 3000:3000
+      - 80:80
 
   redis:
     image: redis
