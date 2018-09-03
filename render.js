@@ -7,26 +7,6 @@ const clientManifest = require('./static/client-manifest.json');
 const serverManifest = require('./static/server-manifest.json');
 const { configureStore, createApp, routes } = require(path.join(__dirname, serverManifest['main.js']));
 
-// if (process.env.NODE_ENV == 'development') {
-//     app.use(morgan('dev'));
-//     const setup = require('./build/dev-server');
-//     const opn = require('opn');
-//     let ready;
-//     const promise = new Promise((resolve) => ready = resolve);
-//     promise.then(() => opn(`http://localhost:${port}`));
-//     setup(app, (m) => {
-//         createApp = m.createApp;
-//         configureStore = m.configureStore;
-//         routes = m.routes;
-//         ready();
-//     });
-// } else {
-//     app.use(log4js.connectLogger(log4js.getLogger("http"), { level: 'auto' }));
-//     const m = require('./app/server.bundle');
-//     createApp = m.createApp;
-//     configureStore = m.configureStore;
-//     routes = m.routes;
-// };
 exports.index = async (req, res) => {
     const context = {};
     const store = configureStore();

@@ -66,7 +66,6 @@ export default class Profile extends Component {
                                 </Link>
                             </div>
                     }
-
                 </Card>
             </div>
         );

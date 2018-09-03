@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 const preUrl = 'http://localhost:3000';
+// const preUrl = '//bbs.qinyongli.cn';
 
 export const fetchTopics = (query) => {
     let nextUrl = '';
