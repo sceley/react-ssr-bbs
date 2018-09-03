@@ -9,12 +9,13 @@ services:
     ports:
       - 6379:6379
     command: redis-server --appendonly yes --requirepass 16051223
+
   mysql:
     image: mysql
     volumes:
       - bbs-mysql:/var/lib/mysql
       - ./conf.d/mysql:/etc/mysql
-    environment: 
+    environment:
       - MYSQL_ROOT_PASSWORD=16051223
       - MYSQL_DATABASE=sceley_bbs
     networks:
@@ -28,4 +29,4 @@ volumes:
 
 networks:
   docker-bbs:
-    driver: bridge 
+    driver: bridge

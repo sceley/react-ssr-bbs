@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    # image: sceley/pmnode
     environment:
       - NODE_ENV=production
       - REDIS_HOST=redis
@@ -20,6 +21,7 @@ services:
       - docker-bbs
     ports:
       - 3000:3000
+
   redis:
     image: redis
     volumes:
@@ -27,6 +29,7 @@ services:
     networks:
       - docker-bbs
     command: redis-server --appendonly yes --requirepass 16051223
+
   mysql:
     image: mysql
     volumes:
