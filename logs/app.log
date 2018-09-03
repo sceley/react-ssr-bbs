@@ -38,3 +38,12 @@
 [2018-09-03T10:51:15.600] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
 [2018-09-03T10:51:19.010] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
 [2018-09-03T10:51:40.986] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:00:33.686] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:00:40.095] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:01:45.008] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:01:50.427] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:02:40.573] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:02:46.093] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:08:32.910] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:08:48.631] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+[2018-09-03T11:09:32.206] [ERROR] app - getTopics: Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN

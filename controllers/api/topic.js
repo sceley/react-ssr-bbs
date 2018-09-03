@@ -78,7 +78,7 @@ exports.getTopics = async (req, res) => {
         const tab = req.query.tab || '%';
         const page = req.query.page || 1;
         const topics = await new Promise((resolve, reject) => {
-            const sql = `select Topic.*, User.id as user_id, User.avatar from Topic
+            const sql = `select Topic.*, User.username as author, User.avatar from Topic
                     left join User on Topic.author_id=User.id 
                     where Topic.tab like ?
                     order by Topic.updatedAt desc limit ?, ?`;
@@ -96,6 +96,7 @@ exports.getTopics = async (req, res) => {
             data: topics
         });
     } catch (err) {
+        console.log(err);
         logger.error(`getTopics: ${err}`);
         res.json({
             err: 1,

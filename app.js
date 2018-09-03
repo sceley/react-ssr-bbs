@@ -61,16 +61,17 @@ app.get("*", async (req, res) => {
     const store = configureStore();
     const App = createApp(req, store, context);
     if (context.url) {
+        console.log(context);
         res.writeHead(301, {
             Location: context.url
-        })
+        });
         res.end();
     } else {
         const promises = [];
         routes.forEach(route => {
             const match = matchPath(req.path, route);
             const serverFetch = route.component.serverFetch;
-            if (match && serverFetch) {
+            if (match && match.params.id && serverFetch) {
                 promises.push(store.dispatch(serverFetch(match)));
             }
         });

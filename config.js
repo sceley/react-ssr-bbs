@@ -15,13 +15,15 @@ module.exports = {
         callbackURL: "http://localhost:3000/api/auth/github/callback"
     },
     db: {
-        host: 'localhost',
         user: 'root',
-        password: '16051223',
-        database: 'bbs'
+        host: process.env.MYSQL_HOST || '127.0.0.1',
+        password: process.env.MYSQL_PASSWORD || '16051223',
+        database: process.env.MYSQL_DATABASE || 'sceley-bbs'
     },
     redis: {
-        host: 'localhost'
+        host: process.env.REDIS_HOST || '127.0.0.1',
+        port: process.env.REDIS_PORT || 6379,
+        password: process.env.REDIS_PASSWORD || ''
     },
     log: {
         dirpath: './logs',

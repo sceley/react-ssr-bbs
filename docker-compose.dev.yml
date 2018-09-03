@@ -1,41 +1,26 @@
 version: '3'
 services:
-  node:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - NODE_ENV=production
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - REDIS_PASSWORD=16051223
-      - MYSQL_HOST=mysql
-      - MYSQL_PORT=3306
-      - MYSQL_PASSWORD=16051223
-      - MYSQL_DATABASE=sceley_bbs
-    depends_on:
-      - redis
-      - mysql
-    networks:
-      - docker-bbs
-    ports:
-      - 3000:3000
   redis:
     image: redis
     volumes:
       - bbs-redis:/data
     networks:
       - docker-bbs
+    ports:
+      - 6379:6379
     command: redis-server --appendonly yes --requirepass 16051223
   mysql:
     image: mysql
     volumes:
       - bbs-mysql:/var/lib/mysql
+      - ./conf.d/mysql:/etc/mysql
     environment: 
       - MYSQL_ROOT_PASSWORD=16051223
       - MYSQL_DATABASE=sceley_bbs
     networks:
       - docker-bbs
+    ports:
+      - 3306:3306
 
 volumes:
   bbs-redis:
