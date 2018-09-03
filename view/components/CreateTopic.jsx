@@ -3,7 +3,6 @@ import { Card, Input, Button, Form, Select, Layout } from 'antd';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Editor from './Editor';
-// import { SET_TOPICS } from '../store/actions';
 import { createTopic } from '../api';
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -22,11 +21,6 @@ class CreateTopic extends Component {
                 if (res.ok) {
                     const json = await res.json();
                     if (json.err === 0) {
-                        // const topics = [json.data, ...this.props.topics];
-                        // this.props.dispatch({
-                        //     type: SET_TOPICS,
-                        //     payload: topics
-                        // });
                         this.props.history.push('/');
                     } else {
                         alert(json.msg);

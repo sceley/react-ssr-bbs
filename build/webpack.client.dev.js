@@ -1,11 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
+
+const publicPath = '/static/';
+
 module.exports = {
     mode: 'development',
     entry: ['./view/entry-client.js', 'webpack-hot-middleware/client'],
     output: {
         path: path.resolve(__dirname, '../static'),
-        publicPath: '/static/',
+        publicPath: publicPath,
         filename: 'js/client.bundle.js'
     },
     resolve: {
@@ -19,8 +23,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                include: path.join(__dirname, 'view')
+                exclude: /node_modules/
             },
             {
                 test: /\.css$/,
@@ -50,6 +53,10 @@ module.exports = {
                 NODE_ENV: JSON.stringify('development')
             }
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ManifestPlugin({
+            fileName: 'client-manifest.json',
+            publicPath: publicPath
+        })
     ]
 };

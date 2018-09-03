@@ -1,5 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
+
+const publicPath = '/static/';
+
 module.exports = {
     target: 'node',
     mode: 'development',
@@ -7,7 +11,7 @@ module.exports = {
     output: {
         libraryTarget: 'commonjs2',
         path: path.resolve(__dirname, '../static'),
-        publicPath: '/static/',
+        publicPath: publicPath,
         filename: 'js/server.bundle.js'
     },
     resolve: {
@@ -21,8 +25,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                include: path.join(__dirname, 'view')
+                exclude: /node_modules/
             },
             {
                 test: /\.css$/,
@@ -51,6 +54,10 @@ module.exports = {
             'process.env': {
                 NODE_ENV: JSON.stringify('development')
             }
-        })
+        }),
+        new ManifestPlugin({
+            fileName: 'server-manifest.json',
+            publicPath: publicPath
+        }),
     ]
 };
