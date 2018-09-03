@@ -4,9 +4,9 @@
   "description": "It is a react server rendering project.",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development node app.js",
     "start": "node app.js",
-    "docker": "pm2 start app.js",
+    "dev": "NODE_ENV=development node app.js",
+    "pro": "NODE_ENV=production node app.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "webpack --config build/webpack.client.pro.js",
     "build:server": "webpack --config build/webpack.server.pro.js",
