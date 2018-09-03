@@ -1,0 +1,105 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.content {
+    background: #fff;
+    padding: 24px;
+    margin-right: 24px;
+}
+
+.sider {
+    background: #f0f2f5;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #e7e7e7;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 31px;
+}
+
+.share {
+    padding: 0px 20px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-horizon {
+    flex-direction: row;
+}
+
+.menu-vertical {
+    flex-direction: column;
+}
+
+.menu-vertical>li {
+    padding: 5px 0;
+}
+
+.menu-horizon>.menu-item {
+    padding: 0px 10px;
+}
+
+.menu-item a {
+    color: #e7e7e7;
+}
+
+.media {
+    display: flex;
+}
+
+.media-horizon {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.editor-tool {
+    background: transparent;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px 2px 0 0;
+    padding: 5px 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+.editor-tool>li>a {
+    color: #1890ff;
+}
+
+.comment-item {
+    display: flex;
+}
+
+.editor {
+    outline: none;
+}

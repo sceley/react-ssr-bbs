@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://bbs.qinyongli.cn/sitemap.xml

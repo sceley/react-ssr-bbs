@@ -1,11 +1,11 @@
 {
   "name": "react-ssr-bbs",
   "version": "1.0.0",
-  "description": "It is a react server side render project.",
+  "description": "It is a react server rendering project.",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development node server.js",
-    "start": "node server.js",
+    "dev": "NODE_ENV=development node app.js",
+    "start": "node app.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "NODE_ENV=production webpack --config build/webpack.client.js",
     "build:server": "NODE_ENV=production webpack --config build/webpack.server.js",
@@ -16,14 +16,28 @@
   "dependencies": {
     "antd": "^3.8.2",
     "babel-runtime": "^6.26.0",
+    "bcrypt": "^3.0.0",
+    "connect-redis": "^3.3.3",
+    "data2xml": "^1.2.5",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "highlightjs": "^9.10.0",
     "isomorphic-fetch": "^2.2.1",
+    "log4js": "^3.0.5",
+    "markdown-it": "^8.4.2",
+    "multer": "^1.3.1",
+    "mysql": "^2.16.0",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
+    "qn": "^1.3.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
-    "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0"
+    "redis": "^2.8.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "xmlbuilder": "^10.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -34,16 +48,21 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
     "memory-fs": "^0.4.1",
     "mini-css-extract-plugin": "^0.4.1",
     "morgan": "^1.9.0",
     "opn": "^5.3.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.22.1",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "url-loader": "^1.0.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-hot-middleware": "^2.22.3",
-    "webpack-manifest-plugin": "^2.0.3"
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
   }
 }
