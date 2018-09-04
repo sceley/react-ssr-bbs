@@ -90,6 +90,7 @@ class App extends Component {
                         </Switch>
                     </Content>
                     <Footer className="text-center">
+                        <a href="https://github.com/sceley/react-ssr-bbs"><Icon type="github" theme="outlined" /></a>
                         ©2018 created by sceley
                     </Footer>
                 </Layout>
