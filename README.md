@@ -15,7 +15,7 @@ brew install redis
 
 ## run
 
-production
+Mode: production
 
 ```sh
 npm run build
@@ -23,7 +23,7 @@ npm run build
 npm run pro
 ```
 
-development
+Mode: development
 
 ```sh
 npm run dev
