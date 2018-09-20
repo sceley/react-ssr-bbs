@@ -89,15 +89,10 @@ class App extends Component {
                             }
                         </Switch>
                     </Content>
-<<<<<<< HEAD
-                    <Footer className="text-center">
-                        <a href="https://github.com/sceley/react-ssr-bbs"><Icon type="github" theme="outlined" /></a>
-=======
                     <Footer className="footer text-center">
                         <a className="github-link" href="https://github.com/sceley/react-ssr-bbs">
                             <Icon type="github" theme="outlined" />
                         </a>
->>>>>>> pro
                         ©2018 created by sceley
                     </Footer>
                 </Layout>

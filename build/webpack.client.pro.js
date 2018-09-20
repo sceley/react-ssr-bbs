@@ -123,7 +123,8 @@ module.exports = {
         new SWPrecacheWebpackPlugin({
             cacheId: 'sceley-bbs',
             filename: 'service-worker.js',
-            staticFileGlobsIgnorePatterns: [/\.map$/]
+            minify: true,
+            staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/]
         })
     ]
 };

@@ -1,5 +1,5 @@
 const http = require('http');
-// const https = require('https');
+const https = require('https');
 const httpProxy = require('http-proxy');
 const fs = require('fs');
 const path = require('path');
@@ -23,9 +23,17 @@ const httpServer = http.createServer(app);
 // };
 // const httpsServer = https.createServer(options, app);
 const router = require('./router');
-const render = require('./render');
 
 app.use('/', express.static(path.join(__dirname, 'assets')));
+passport.serializeUser(function (profile, done) {
+    done(null, profile);
+});
+passport.use(new GitHubStrategy(config.github, function (accessToken, refreshToken, profile, cb) {
+    cb(null, profile);
+}));
+
+app.use(passport.initialize());
+
 app.use(session({
     store: new RedisStore({
         client: require('./model/redis')
@@ -33,27 +41,21 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false
 }));
-passport.serializeUser(function (profile, done) {
-    done(null, profile);
-});
-passport.use(new GitHubStrategy(config.github, function (accessToken, refreshToken, profile, cb) {
-    cb(null, profile);
-}));
-app.use(passport.initialize());
 app.use('/', router);
-
 if (process.env.NODE_ENV == 'development') {
     app.use(morgan('dev'));
     const setup = require('./build/dev-server');
     setup(app);
 } else {
+    const render = require('./render');
     app.use(log4js.connectLogger(log4js.getLogger("http"), { level: 'auto' }));
     app.use('/static', express.static(path.join(__dirname, 'static')));
     app.get('*', render.index);
 }
 
+
 httpServer.listen(config.server.port, () => {
-    console.log('http listen at 80');
+    console.log(`http listen at ${config.server.port}`);
 });
 // httpsServer.listen(443, () => {
 //     console.log('https listen at 443');
