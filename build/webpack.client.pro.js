@@ -5,6 +5,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const autoprefixer = require('autoprefixer');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+
 
 const getStyleLoaders = (cssOptions) => {
     const loaders = [
@@ -117,6 +119,11 @@ module.exports = {
         new ManifestPlugin({
             fileName: 'client-manifest.json',
             publicPath: publicPath
+        }),
+        new SWPrecacheWebpackPlugin({
+            cacheId: 'sceley-bbs',
+            filename: 'service-worker.js',
+            staticFileGlobsIgnorePatterns: [/\.map$/]
         })
     ]
 };
