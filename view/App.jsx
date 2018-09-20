@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, Link, withRouter } from 'react-router-dom';
-import { Layout, Input } from 'antd';
+import { Layout, Input, Icon } from 'antd';
 import routes from './routes';
 import { CLEAR_USERINFO, fetchUserInfo } from './store/actions';
 import 'highlightjs/styles/atom-one-light.css';
@@ -89,8 +89,15 @@ class App extends Component {
                             }
                         </Switch>
                     </Content>
+<<<<<<< HEAD
                     <Footer className="text-center">
                         <a href="https://github.com/sceley/react-ssr-bbs"><Icon type="github" theme="outlined" /></a>
+=======
+                    <Footer className="footer text-center">
+                        <a className="github-link" href="https://github.com/sceley/react-ssr-bbs">
+                            <Icon type="github" theme="outlined" />
+                        </a>
+>>>>>>> pro
                         ©2018 created by sceley
                     </Footer>
                 </Layout>
