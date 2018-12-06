@@ -7,6 +7,7 @@ import { CLEAR_USERINFO, fetchUserInfo } from './store/actions';
 import 'highlightjs/styles/atom-one-light.css';
 import './App.css';
 import { search, signout } from './api';
+import logo from './assets/logo.svg';
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;
 
@@ -45,7 +46,7 @@ class App extends Component {
                         <div className="header-left">
                             <div className="logo-wrap">
                                 <Link to="/">
-                                    <img className="logo" src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg" alt="logo" />
+                                    <img className="logo" src={logo} alt="logo" />
                                 </Link>
                             </div>
                             <div className="share">一个分享与发现的地方</div>

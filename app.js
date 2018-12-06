@@ -1,8 +1,5 @@
-const http = require('http');
-const https = require('https');
-const httpProxy = require('http-proxy');
-const fs = require('fs');
 const path = require('path');
+const http = require('http');
 const express = require('express');
 const session = require('express-session');
 const morgan = require('morgan');
@@ -10,21 +7,11 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const config = require('./config');
 const log4js = require('./lib/log');
-const app = express();
 const RedisStore = require('connect-redis')(session);
+const router = require('./router');
+const app = express();
 const httpServer = http.createServer(app);
 
-// const httpServer = http.createServer((req, res) => {
-//     proxy.web(req, res, { target: 'https://bbs.qinyongli.cn:443' });
-// });
-// const options = {
-//     key: fs.readFileSync('/etc/letsencrypt/live/bbs.qinyongli.cn/privkey.pem'),
-//     cert: fs.readFileSync('/etc/letsencrypt/live/bbs.qinyongli.cn/cert.pem')
-// };
-// const httpsServer = https.createServer(options, app);
-const router = require('./router');
-
-app.use('/', express.static(path.join(__dirname, 'assets')));
 passport.serializeUser(function (profile, done) {
     done(null, profile);
 });
@@ -33,7 +20,7 @@ passport.use(new GitHubStrategy(config.github, function (accessToken, refreshTok
 }));
 
 app.use(passport.initialize());
-
+app.use('/', express.static(path.join(__dirname, 'assets')));
 app.use(session({
     store: new RedisStore({
         client: require('./model/redis')
@@ -42,9 +29,10 @@ app.use(session({
     resave: false
 }));
 app.use('/', router);
+
 if (process.env.NODE_ENV == 'development') {
-    app.use(morgan('dev'));
     const setup = require('./build/dev-server');
+    app.use(morgan('dev'));
     setup(app);
 } else {
     const render = require('./render');
@@ -57,6 +45,3 @@ if (process.env.NODE_ENV == 'development') {
 httpServer.listen(config.server.port, () => {
     console.log(`http listen at ${config.server.port}`);
 });
-// httpsServer.listen(443, () => {
-//     console.log('https listen at 443');
-// });

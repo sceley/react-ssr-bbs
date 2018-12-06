@@ -62,8 +62,6 @@ module.exports = async (app) => {
             console.log(err);
         } else {
             ready();
-            // const clientManifest = mfs.readFileSync(path.join(clientConfig.output.path, 'client-manifest.json'));
-            // console.log(path.join(clientConfig.output.path, 'client-manifest.json'));
             const Module = module.constructor;
             const bundlePath = path.join(serverConfig.output.path, serverConfig.output.filename);
             const bundle = mfs.readFileSync(bundlePath, 'utf-8');
@@ -74,5 +72,4 @@ module.exports = async (app) => {
             routes = m.exports.routes;
         }
     });
-    opn(`http://localhost:${process.env.PORT || 3000}`);
 };
